@@ -33,10 +33,10 @@ public class OrderController {
 			.orElse(ResponseEntity.notFound().build());
 	}
 
-	@GetMapping("/byClient/{clientId}")
-	public ResponseEntity<List<Order>> obtenerPorClienteId(@PathVariable Long clientId) {
-		List<Order> ordersByClient = orderService.obtenerPorClienteId(clientId);
-		return ResponseEntity.ok(ordersByClient);
+	@GetMapping("/byUser/{userId}")
+	public ResponseEntity<List<Order>> obtenerPorUserId(@PathVariable Long userId) {
+		List<Order> ordersByUser = orderService.obtenerPorUserId(userId);
+		return ResponseEntity.ok(ordersByUser);
 	}
 
 	@PostMapping("/create")

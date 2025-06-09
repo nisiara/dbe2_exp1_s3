@@ -34,8 +34,8 @@ public class OrderService {
 		orderRepository.deleteById(id);
 	}
 
-	public List<Order> obtenerPorClienteId(Long clienteId) {
-		return orderRepository.findByClientId(clienteId);
+	public List<Order> obtenerPorUserId(Long userId) {
+		return orderRepository.findByUserId(userId);
 	}
 
 	public List<Order> obtenerPorEstado(String estado) {

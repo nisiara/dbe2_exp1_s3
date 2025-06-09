@@ -1,16 +1,22 @@
 package com.letrasypapeles.backend.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "tbl_users")
+
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
+
+@Entity
+@Table(name = "tbl_users")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +24,10 @@ public class User {
 
 	private String username;
 	private String password;
+	private String name;
+
+	@Column(unique = true)
+	private String email;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(
@@ -25,6 +35,6 @@ public class User {
 		joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
 		inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
 	)
-	private List<Role> roles = new ArrayList<>();
+	private List<Role> roles;
 
 }

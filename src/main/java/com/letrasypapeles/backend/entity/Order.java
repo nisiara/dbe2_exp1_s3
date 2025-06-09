@@ -25,8 +25,8 @@ public class Order {
 	private String status;
 
 	@ManyToOne
-	@JoinColumn(name = "client_id")
-	private Client client;
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	@ManyToMany
 	@JoinTable(

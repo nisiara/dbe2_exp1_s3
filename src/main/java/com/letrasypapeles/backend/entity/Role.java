@@ -23,7 +23,7 @@ public class Role {
 	private String name;
 
 	@ManyToMany(mappedBy = "roles")
-	private Set<Client> clientList;
+	private Set<User> userList;
 
 }
 

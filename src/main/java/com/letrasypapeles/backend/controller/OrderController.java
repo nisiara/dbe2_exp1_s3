@@ -59,7 +59,7 @@ public class OrderController {
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Void> eliminarPedido(@PathVariable Long id) {
 		return orderService.obtenerPorId(id)
-			.map(p -> {
+			.map(o -> {
 				orderService.eliminar(id);
 				return ResponseEntity.ok().<Void>build();
 			})

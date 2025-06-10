@@ -59,7 +59,7 @@ public class AuthController {
 		user.setUsername(registerDTO.getUsername());
 		user.setPassword(passwordEncoder.encode(registerDTO.getPassword()));
 
-		Role role = roleRepository.findByName("EMPLEADO").get();
+		Role role = roleRepository.findByName("CLIENTE").get();
 		user.setRoles(Collections.singletonList(role));
 
 		user.setName(registerDTO.getName());

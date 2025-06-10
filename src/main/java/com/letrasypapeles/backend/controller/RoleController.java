@@ -4,6 +4,7 @@ import com.letrasypapeles.backend.entity.Role;
 import com.letrasypapeles.backend.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/api/role")
+@PreAuthorize("hasRole('GERENTE')")
 public class RoleController {
 
 	private RoleService roleService;
@@ -19,7 +21,6 @@ public class RoleController {
 	public RoleController(RoleService roleService) {
 		this.roleService = roleService;
 	}
-
 	@GetMapping
 	public ResponseEntity<List<Role>> obtenerTodos() {
 		List<Role> roles = roleService.obtenerTodos();

@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Data
 @NoArgsConstructor
@@ -35,6 +37,8 @@ public class User {
 		joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
 		inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
 	)
+	
+	@JsonIgnore
 	private List<Role> roles;
 
 }
